@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP3 · Convocado · Dos sentencias, dos soluciones | Grupo 30 · IFTS 29</title>
+    <meta name="description" content="Propuesta de automatización agéntica para la startup Convocado. Resolución de dos sentencias lógicas con flujos gráficos, desplegables y enfoque 100% agéntico.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <!-- Encabezado Hero -->
+    <header class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-top-badges">
+                <span class="badge badge-primary">IFTS 29 · Desarrollo de Sistemas Web · Front End 2026</span>
+                <span class="badge badge-accent">Grupo 30 · Construcción 100% Agéntica</span>
+            </div>
+
+            <div class="startup-hero-card">
+                <div class="startup-logo-wrapper">
+                    <img src="assets/img/convocado-logo.webp" alt="Logo oficial de la startup Convocado" class="startup-logo" width="140" height="140" loading="eager">
+                </div>
+                <div class="startup-hero-info">
+                    <span class="startup-tag">Startup Asignada · Sorteo Oficial S10-B / S08-C</span>
+                    <h1>Convocado</h1>
+                    <p class="startup-service">Deportes y conexión de equipos · Red para que jugadores encuentren equipos y soliciten participar en partidos.</p>
+                    <div class="academic-origin-note">
+                        <span class="origin-icon">🏛️</span>
+                        <span><strong>Articulación Académica:</strong> Condiciones de funcionamiento y lógica proposicional creadas por estudiantes del <strong>IFTS 16</strong>. Propuesta de solución agéntica e interfaz web diseñada por el <strong>Grupo 30 (IFTS 29)</strong>.</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="hero-description">
+                Presentamos dos soluciones agénticas para el bloque <strong>Asistencia y datos faltantes</strong>. Cada propuesta traduce las reglas de lógica proposicional en flujos claros, con representación gráfica, gestión de casos límite y detalles explorables en desplegables interactivos.
+            </p>
+
+            <div class="hero-meta" aria-label="Metadatos del trabajo">
+                <div class="meta-item">
+                    <span class="meta-label">Entrega</span>
+                    <span class="meta-value">26/11/2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Modalidad</span>
+                    <span class="meta-value">Grupal (Grupo 30)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Bloque Asignado</span>
+                    <span class="meta-value">Asistencia y datos faltantes</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tecnología</span>
+                    <span class="meta-value">HTML5 · CSS3 · JS Vanilla</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Navegación Accesible -->
+    <nav class="nav" aria-label="Navegación principal">
+        <div class="container nav-container">
+            <a href="#contexto" class="nav-link">01 · Contexto y Sentencias</a>
+            <a href="#flujo1" class="nav-link">02 · Flujo 1 (R5)</a>
+            <a href="#flujo2" class="nav-link">03 · Flujo 2 (R6)</a>
+            <a href="#simulador" class="nav-link">04 · Simulador de Casos</a>
+            <a href="#mockup" class="nav-link">05 · Mockup App Convocado</a>
+            <a href="#conclusion" class="nav-link">06 · Conclusión y Enfoque</a>
+        </div>
+    </nav>
+
+    <main id="contenido-principal">
+        <!-- SECCIÓN 01: Contexto y Desarme Lógico -->
+        <section id="contexto" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <div>
+                        <h2>Contexto de la Startup y Desarme Lógico</h2>
+                        <p class="section-subtitle">Del problema en lenguaje natural al modelo formal de decisión</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <article class="card card-context">
+                        <div class="card-icon">⚽</div>
+                        <h3>Misión de Convocado</h3>
+                        <p>
+                            <strong>Convocado</strong> busca resolver la falta de jugadores para partidos deportivos. Permite que capitanes publiquen convocatorias y que deportistas independientes envíen solicitudes para sumarse. 
+                        </p>
+                        <p>
+                            En el bloque <em>Asistencia y datos faltantes</em>, el desafío crítico es garantizar que nadie confirme un lugar inexistente y evitar que la falta de historial deportivo se resuelva con puntuaciones inventadas.
+                        </p>
+                    </article>
+
+                    <article class="card card-highlight">
+                        <div class="card-icon">🤖</div>
+                        <h3>Desafío 100% Agéntico</h3>
+                        <p>
+                            <em>"Ustedes dirigen. El agente construye."</em> Este proyecto fue diseñado y programado íntegramente mediante instrucciones a agentes de programación (Antigravity IDE / Cursor), sin edición manual de código.
+                        </p>
+                        <p>
+                            La landing web comunica la propuesta de automatización para que cualquier evaluador o usuario pueda comprender el camino que seguiría el software ante cada evento.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="section-subheader">
+                    <h3>Sentencias Asignadas y Fichas de Desarme Formal</h3>
+                    <p class="section-intro">Desglose riguroso de condiciones, operadores y consecuencias según la consigna oficial:</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <!-- Ficha R5 -->
+                    <article class="sentence-card">
+                        <div class="sentence-badge-row">
+                            <span class="sentence-badge">FRASE 1 · R5</span>
+                            <span class="sentence-type">Conjunción lógica (P ∧ Q)</span>
+                        </div>
+                        <blockquote class="sentence-quote">
+                            "Si el capitán aceptó al jugador y su lugar sigue reservado, el sistema permite que el jugador confirme su asistencia."
+                        </blockquote>
+                        <div class="logic-breakdown">
+                            <div class="logic-item">
+                                <span class="logic-label">📥 Datos necesarios:</span>
+                                <span>Estado de la postulación (aceptada/pendiente) y estado del cupo en el partido (reservado/liberado).</span>
+                            </div>
+                            <div class="logic-item">
+                                <span class="logic-label">⚖️ Condición:</span>
+                                <span>(Capitán aceptó al jugador = TRUE) <strong>AND</strong> (Lugar sigue reservado = TRUE).</span>
+                            </div>
+                            <div class="logic-item">
+                                <span class="logic-label">🎯 Consecuencia:</span>
+                                <span>El sistema habilita formalmente la acción "Confirmar asistencia" para el jugador.</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Ficha R6 -->
+                    <article class="sentence-card">
+                        <div class="sentence-badge-row">
+                            <span class="sentence-badge">FRASE 2 · R6</span>
+                            <span class="sentence-type">Restricción Ética + Derivación</span>
+                        </div>
+                        <blockquote class="sentence-quote">
+                            "Si un jugador sin valoración autoriza una solicitud, el sistema indica que faltan antecedentes y la deriva a evaluación manual sin asignarle una puntuación inventada."
+                        </blockquote>
+                        <div class="logic-breakdown">
+                            <div class="logic-item">
+                                <span class="logic-label">📥 Datos necesarios:</span>
+                                <span>Registro de autorizaciones del jugador y registro histórico de calificaciones/valoraciones.</span>
+                            </div>
+                            <div class="logic-item">
+                                <span class="logic-label">⚖️ Condición:</span>
+                                <span>(Jugador sin valoración = TRUE) <strong>AND</strong> (Autoriza una solicitud = TRUE).</span>
+                            </div>
+                            <div class="logic-item">
+                                <span class="logic-label">🎯 Consecuencia:</span>
+                                <span>Notifica falta de antecedentes, deriva a revisión humana y <strong>prohíbe estrictamente generar puntajes ficticios</strong>.</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 02: Flujo 1 · R5 -->
+        <section id="flujo1" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <div>
+                        <h2>Flujo Agéntico 1 · Confirmación de Asistencia</h2>
+                        <p class="solution-title">Propuesta: <strong>"Booking Guard Agent · Custodia Dinámica de Cupos"</strong></p>
+                    </div>
+                </div>
+
+                <div class="proposal-benefit-box">
+                    <h3>💡 Beneficio de la Solución (2 frases):</h3>
+                    <p>
+                        Garantiza la integridad de las alineaciones deportivas al habilitar la confirmación únicamente cuando la vacante sigue efectivamente asegurada tras la aceptación del capitán, previniendo sobrecupos y malentendidos. Además, automatiza la trazabilidad del evento y gestiona la liberación preventiva de lugares si el jugador no confirma a tiempo.
+                    </p>
+                </div>
+
+                <!-- Diagrama Gráfico Mermaid Flujo 1 -->
+                <div class="card card-diagram">
+                    <div class="diagram-header">
+                        <h3>Representación Gráfica del Recorrido (Flujo R5)</h3>
+                        <span class="diagram-tag">Diagrama interactivo de decisiones</span>
+                    </div>
+                    <p class="diagram-instruction">El recorrido muestra el evento entrante, las herramientas consultadas, la bifurcación lógica y la resolución de casos límite con intervención de reserva.</p>
+                    
+                    <div class="mermaid">
+flowchart TD
+    Inicio([Evento: Capitán acepta postulación]) --> Tool1[Consultar Servicio de Solicitudes y Cupos]
+    Tool1 --> Cond1{¿Capitán aceptó<br/>Y lugar sigue reservado?}
+    
+    Cond1 -- SÍ --> AccionExito[Habilitar botón 'Confirmar Asistencia'<br/>Notificar al jugador con plazo límite]
+    AccionExito --> EsperaConfirm{¿El jugador confirma<br/>antes del plazo límite?}
+    
+    EsperaConfirm -- SÍ --> FinExito([Estado: ASISTENCIA CONFIRMADA<br/>Plaza asegurada en alineación]):::nodoExito
+    EsperaConfirm -- NO (Caso Límite) --> TimeoutAccion[Expiró plazo de reserva<br/>Liberar lugar para suplentes]
+    TimeoutAccion --> FinTimeout([Notificar al capitán y al jugador<br/>Lugar reasignado a lista de espera]):::nodoAlerta
+
+    Cond1 -- NO --> DecisionNo{¿Cuál es el motivo?}
+    DecisionNo -- Cupo ocupado/liberado --> MsgCupo[Informar que la vacante ya no está reservada]
+    DecisionNo -- Solicitud no aceptada --> MsgRechazo[Mantener solicitud en revisión]
+    MsgCupo --> FinNo([Ofrecer inscribirse en lista de espera]):::nodoNo
+    MsgRechazo --> FinNo
+
+    classDef nodoExito fill:#065f46,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef nodoAlerta fill:#92400e,stroke:#f59e0b,stroke-width:2px,color:#fff;
+    classDef nodoNo fill:#4c1d95,stroke:#8b5cf6,stroke-width:2px,color:#fff;
+                    </div>
+                </div>
+
+                <!-- Desplegables de Detalles Flujo 1 -->
+                <div class="details-section">
+                    <h3 class="details-heading">Detalles Operativos de la Solución (Explorar desplegables)</h3>
+                    
+                    <div class="accordion-group">
+                        <details class="accordion-item" open>
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">📥</span>
+                                <span class="accordion-title">1. Datos de Entrada y Herramientas Consultadas</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p><strong>Datos que ingresan al agente:</strong></p>
+                                <ul>
+                                    <li><code>id_jugador</code>: Identificador único del postulante.</li>
+                                    <li><code>id_partido</code>: Identificador del encuentro deportivo convocado.</li>
+                                    <li><code>estado_solicitud</code>: Registro en base de datos (<em>'aceptada'</em>, <em>'pendiente'</em>, <em>'rechazada'</em>).</li>
+                                    <li><code>token_reserva</code> y <code>cupo_status</code>: Indicador de si la plaza permanece bloqueada temporalmente para ese jugador o si expiró.</li>
+                                </ul>
+                                <p><strong>Herramientas que consulta el futuro agente:</strong></p>
+                                <ul>
+                                    <li><strong>Servicio de Solicitudes (Matches API):</strong> Para verificar la firma digital/autorización del capitán.</li>
+                                    <li><strong>Servicio de Inventario de Cancha / Cupos:</strong> Para comprobar en tiempo real que el cupo no fue asignado a otro jugador ni cancelado.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">⚖️</span>
+                                <span class="accordion-title">2. Lógica de Decisión y Reglas Evaluadas</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p>El agente ejecuta una compuerta lógica estricta <strong>AND</strong>:</p>
+                                <div class="code-pill-block">
+                                    <code>SI (solicitud.estado === 'ACEPTADA' && partido.reserva_activa === TRUE) ENTONCES -> HABILITAR_CONFIRMACION</code>
+                                </div>
+                                <p>
+                                    Si alguna de las dos proposiciones es falsa, la confirmación se bloquea de forma preventiva. La sentencia no castiga al usuario, sino que protege la coherencia del partido.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">🎯</span>
+                                <span class="accordion-title">3. Acciones Propuestas y Resultado Esperado</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <ul>
+                                    <li><strong>Acción afirmativa:</strong> El agente actualiza la interfaz del jugador habilitando el botón <em>"Confirmar mi asistencia al partido"</em> y envía un mensaje push notificando que su lugar está listo para ser ratificado.</li>
+                                    <li><strong>Resultado esperado:</strong> Cuando el jugador pulsa confirmar, el estado de la vacante muta de <em>"Reservado temporal"</em> a <em>"Confirmado definitivo"</em>, garantizando que el equipo cuenta con sus 10 jugadores.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">⏳</span>
+                                <span class="accordion-title">4. Caso Límite, Excepciones y Liberación por Timeout (Nivel Propone)</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <div class="callout callout-warning">
+                                    <h4>⚠️ ¿Qué sucede si el jugador no confirma su asistencia? (Decisión agregada por el grupo)</h4>
+                                    <p>
+                                        La sentencia R5 define cuándo se permite confirmar, pero no qué ocurre si el jugador se desentiende. Como propuesta propia del <strong>Grupo 30</strong>, el agente implementa un <strong>temporizador de cortesía (timeout de 6 horas antes del partido)</strong>:
+                                    </p>
+                                    <ol>
+                                        <li>Si restan menos de 6 horas y el jugador no confirmó, el agente envía una alerta de urgencia.</li>
+                                        <li>Si restan 3 horas sin respuesta, el agente cancela la reserva de cortesía para no perjudicar al equipo.</li>
+                                        <li>Notifica al capitán y promueve automáticamente al primer deportista en lista de espera.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 03: Flujo 2 · R6 -->
+        <section id="flujo2" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <div>
+                        <h2>Flujo Agéntico 2 · Falta de Valoración y Evaluación Manual</h2>
+                        <p class="solution-title">Propuesta: <strong>"FairPlay Onboarding · Auditoría Transparente sin Sesgo"</strong></p>
+                    </div>
+                </div>
+
+                <div class="proposal-benefit-box">
+                    <h3>💡 Beneficio de la Solución (2 frases):</h3>
+                    <p>
+                        Preserva la confianza y la justicia en la comunidad deportiva al impedir que el sistema asigne puntajes artificiales o arbitrarios a usuarios recién incorporados. Canaliza las solicitudes de jugadores novatos hacia una mesa de evaluación humana transparente, asegurando una bienvenida cuidada y antecedentes fidedignos.
+                    </p>
+                </div>
+
+                <!-- Diagrama Gráfico Mermaid Flujo 2 -->
+                <div class="card card-diagram">
+                    <div class="diagram-header">
+                        <h3>Representación Gráfica del Recorrido (Flujo R6)</h3>
+                        <span class="diagram-tag">Diagrama interactivo de decisiones</span>
+                    </div>
+                    <p class="diagram-instruction">El recorrido muestra la detección del perfil sin antecedentes, la salvaguarda ética (puntaje = nulo) y la intervención de evaluación humana.</p>
+
+                    <div class="mermaid">
+flowchart TD
+    Inicio([Evento: Jugador autoriza postulación]) --> Tool1[Consultar Repositorio de Perfiles e Historial]
+    Tool1 --> EvalCond{¿El jugador autoriza<br/>Y carece de valoración previa?}
+
+    EvalCond -- SÍ (Caso R6) --> BloqueoScoring[Regla de Oro: Prohibir scoring inventado<br/>Mantener valoración = NULL]
+    BloqueoScoring --> AlertaUsuario[Indicar al jugador: 'Faltan antecedentes deportivos']
+    AlertaUsuario --> CrearTicket[Generar Ticket de Auditoría Manual<br/>Estado: 'Pendiente de Evaluación Humana']
+    
+    CrearTicket --> IntervencionHumana[Mesa de Coordinadores Humanos / Capitán<br/>Revisa ficha, posición y referencias externas]
+    
+    IntervencionHumana --> DecisionHumana{Dictamen de la persona}
+    DecisionHumana -- Aprobado para partido --> NotifAprob([Notificar al capitán: Jugador debutante apto<br/>Habilitar participación formal]):::nodoExito
+    DecisionHumana -- Requiere datos extras --> PedirDatos([Solicitar completar perfil o entrevista breve]):::nodoAlerta
+    DecisionHumana -- No cumple requisitos --> RechazoManual([Informar motivo fundado sin inventar score]):::nodoNo
+
+    EvalCond -- NO (Posee valoración) --> FlujoNormal([Continuar con evaluación algorítmica regular<br/>usando score deportivo real]):::nodoExito
+
+    classDef nodoExito fill:#065f46,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef nodoAlerta fill:#92400e,stroke:#f59e0b,stroke-width:2px,color:#fff;
+    classDef nodoNo fill:#4c1d95,stroke:#8b5cf6,stroke-width:2px,color:#fff;
+                    </div>
+                </div>
+
+                <!-- Desplegables de Detalles Flujo 2 -->
+                <div class="details-section">
+                    <h3 class="details-heading">Detalles Operativos de la Solución (Explorar desplegables)</h3>
+
+                    <div class="accordion-group">
+                        <details class="accordion-item" open>
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">📥</span>
+                                <span class="accordion-title">1. Datos de Entrada y Herramientas Consultadas</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p><strong>Datos que ingresan al agente:</strong></p>
+                                <ul>
+                                    <li><code>id_jugador</code>: Identificador del usuario que envía su solicitud.</li>
+                                    <li><code>historial_partidos</code>: Contador de partidos jugados (en este caso <code>0</code>).</li>
+                                    <li><code>score_reputacion</code>: Calificación acumulada (en este caso <code>null</code> o <code>undefined</code>).</li>
+                                    <li><code>autorizacion_activa</code>: Booleano que certifica que el jugador dio su consentimiento para postularse.</li>
+                                </ul>
+                                <p><strong>Herramientas que consulta el futuro agente:</strong></p>
+                                <ul>
+                                    <li><strong>Servicio de Perfiles y Reputación (Player Profiles API):</strong> Inspecciona antecedentes deportivos y conductas previas.</li>
+                                    <li><strong>Sistema de Mesa de Ayuda / Ticketing Humano (Zendesk / CRM Deportivo):</strong> Para encolar la derivación manual.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">🚫</span>
+                                <span class="accordion-title">2. Salvaguarda Ética: Prohibición Estricta de Puntaje Inventado</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <div class="callout callout-info">
+                                    <h4>🛡️ Principio de Transparencia Algorítmica</h4>
+                                    <p>
+                                        Muchos sistemas convencionales asignan puntuaciones arbitrarias por defecto (ej. 3/5 estrellas o 50 puntos promedio) a usuarios nuevos. Esto falsea la realidad y engaña a los capitanes.
+                                    </p>
+                                    <p>
+                                        Nuestra propuesta agéntica <strong>establece un candado lógico</strong>: el atributo <code>rating</code> se mantiene inalterado como <em>"Sin calificar (Debutante)"</em>. El sistema indica con honestidad: <em>"Faltan antecedentes deportivos registrados"</em>.
+                                    </p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">👤</span>
+                                <span class="accordion-title">3. Intervención Humana y Circuito de Derivación Manual</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p>
+                                    El agente genera un ticket con trazabilidad auditable y lo deriva al panel del <strong>Coordinador de Sede o Capitán de Equipo</strong> con los datos aportados por el jugador (posición, pie hábil, disponibilidad horaria).
+                                </p>
+                                <ul>
+                                    <li><strong>Rol de la persona evaluadora:</strong> Contacta brevemente al deportista o valida si viene recomendado por otro integrante conocido.</li>
+                                    <li><strong>Retorno al agente:</strong> La persona emite un dictamen (Aprobado / Requiere datos / No admitido). El agente toma esa resolución y continúa el flujo sin intervención de IA generativa.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <span class="accordion-icon">⚡</span>
+                                <span class="accordion-title">4. Caso Límite: Solicitud de Urgencia en Partido Inminente (Nivel Propone)</span>
+                                <span class="accordion-chevron">▾</span>
+                            </summary>
+                            <div class="accordion-content">
+                                <div class="callout callout-warning">
+                                    <h4>⏱️ ¿Qué pasa si el partido comienza en menos de 2 horas?</h4>
+                                    <p>
+                                        Si la evaluación manual tradicional demoraría demasiado y el equipo necesita un jugador con urgencia:
+                                    </p>
+                                    <ol>
+                                        <li>El agente etiqueta el ticket como <strong>"URGENTE · MATCH EXPRESS"</strong>.</li>
+                                        <li>Envía una notificación directa al teléfono del capitán: <em>"Jugador nuevo disponible sin valoración. ¿Deseas autorizarlo bajo tu criterio personal para hoy?"</em>.</li>
+                                        <li>Si el capitán acepta manualmente, se le permite participar en calidad de <em>"Invitado a prueba"</em>, habilitando que al finalizar el partido reciba su primera valoración legítima.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 04: Simulador de Casos y Pruebas -->
+        <section id="simulador" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <div>
+                        <h2>Banco de Pruebas · Simulador Interactivo de Casos</h2>
+                        <p class="section-subtitle">Comprobación en vivo de las alternativas lógicas (Requisito Paso 7 de la Consigna)</p>
+                    </div>
+                </div>
+
+                <p class="section-intro">
+                    La consigna solicita: <em>"Recorran un caso que cumpla la condición y otro que no, para cada flujo"</em>. Utilizá los selectores a continuación para experimentar cómo responde el agente frente a cada escenario:
+                </p>
+
+                <div class="grid grid-2">
+                    <!-- Simulador Flujo 1 -->
+                    <div class="simulator-card">
+                        <div class="sim-header">
+                            <span class="sim-badge">Simulador Flujo 1 (R5)</span>
+                            <h4>Confirmación de Asistencia</h4>
+                        </div>
+
+                        <div class="sim-controls">
+                            <button type="button" class="sim-btn active" id="btn-f1-exito" onclick="simularFlujo1('exito')">
+                                Caso A: Cumple condición (Aceptado + Con cupo)
+                            </button>
+                            <button type="button" class="sim-btn" id="btn-f1-nocupo" onclick="simularFlujo1('nocupo')">
+                                Caso B: No cumple (Aceptado pero cupo liberado)
+                            </button>
+                            <button type="button" class="sim-btn" id="btn-f1-timeout" onclick="simularFlujo1('timeout')">
+                                Caso Límite C: Expiración por timeout
+                            </button>
+                        </div>
+
+                        <div class="sim-output" id="output-f1">
+                            <div class="output-status status-success">
+                                <span class="status-indicator">●</span> Condición Cumplida: Aceptado = TRUE | Reserva = TRUE
+                            </div>
+                            <p class="output-description">
+                                <strong>Acción del agente:</strong> Se habilita el botón "Confirmar asistencia". Se envía notificación push al jugador con reserva de cupo asegurada en la plantilla del partido.
+                            </p>
+                            <div class="output-trace">
+                                <span>Trazabilidad: <code>EVENT_ACCEPTED -> CUPOS_OK -> ENABLE_CONFIRMATION_BUTTON -> STATUS_PENDING_CONFIRM</code></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador Flujo 2 -->
+                    <div class="simulator-card">
+                        <div class="sim-header">
+                            <span class="sim-badge">Simulador Flujo 2 (R6)</span>
+                            <h4>Manejo de Jugador sin Valoración</h4>
+                        </div>
+
+                        <div class="sim-controls">
+                            <button type="button" class="sim-btn active" id="btn-f2-noval" onclick="simularFlujo2('noval')">
+                                Caso A: Jugador sin valoración (R6)
+                            </button>
+                            <button type="button" class="sim-btn" id="btn-f2-conval" onclick="simularFlujo2('conval')">
+                                Caso B: Jugador con valoración previa
+                            </button>
+                            <button type="button" class="sim-btn" id="btn-f2-urgente" onclick="simularFlujo2('urgente')">
+                                Caso Límite C: Partido urgente (< 2 hs)
+                            </button>
+                        </div>
+
+                        <div class="sim-output" id="output-f2">
+                            <div class="output-status status-warning">
+                                <span class="status-indicator">●</span> Condición R6 Detectada: Sin valoración = TRUE | Autoriza = TRUE
+                            </div>
+                            <p class="output-description">
+                                <strong>Acción del agente:</strong> Alerta: "Faltan antecedentes deportivos". Se bloquea puntuación inventada (Rating = NULL). Se genera Ticket #AUD-4092 derivado a evaluación humana.
+                            </p>
+                            <div class="output-trace">
+                                <span>Trazabilidad: <code>AUTH_REQUEST -> SCORE_NULL -> WARN_MISSING_DATA -> DISPATCH_MANUAL_REVIEW</code></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 05: Mockup Interactivo del Producto Final -->
+        <section id="mockup" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <div>
+                        <h2>Mockup del Producto Final · Convocado App en Acción</h2>
+                        <p class="section-subtitle">Visualización interactiva de cómo los deportistas y capitanes viven la solución agéntica</p>
+                    </div>
+                </div>
+
+                <div class="mockup-intro-box">
+                    <p>
+                        💡 <strong>Plus de experiencia de usuario:</strong> Aunque el objetivo del TP3 es diseñar y explicar la propuesta en una landing de Front End, construimos este prototipo interactivo para demostrar con qué pantalla se encontraría el deportista y el capitán cuando el agente ejecuta cada sentencia:
+                    </p>
+                </div>
+
+                <div class="mockup-app-wrapper">
+                    <!-- Selector de vistas en el dispositivo -->
+                    <div class="mockup-tabs" role="tablist" aria-label="Vistas del Mockup">
+                        <button type="button" class="mockup-tab-btn active" id="tab-mock-r5" onclick="mostrarMockup('r5')">
+                            ⚽ Vista 1 · Jugador: Confirmar Asistencia (R5)
+                        </button>
+                        <button type="button" class="mockup-tab-btn" id="tab-mock-r6" onclick="mostrarMockup('r6')">
+                            🛡️ Vista 2 · Jugador: Onboarding Transparente (R6)
+                        </button>
+                        <button type="button" class="mockup-tab-btn" id="tab-mock-capitan" onclick="mostrarMockup('capitan')">
+                            📋 Vista 3 · Capitán: Panel de Evaluación Manual
+                        </button>
+                    </div>
+
+                    <!-- Marco de dispositivo interactivo -->
+                    <div class="mockup-frame">
+                        <div class="mockup-top-bar">
+                            <div class="mockup-top-left">
+                                <img src="assets/img/convocado-logo.webp" alt="Convocado mini" class="mockup-mini-logo">
+                                <span class="mockup-brand-name">Convocado App</span>
+                            </div>
+                            <div class="mockup-top-right">
+                                <span class="mockup-signal">🟢 En línea · Agente activo</span>
+                            </div>
+                        </div>
+
+                        <!-- Panel Vista 1: R5 (Confirmación de Asistencia) -->
+                        <div class="mockup-screen-view active" id="view-mock-r5">
+                            <div class="app-card">
+                                <div class="app-card-header">
+                                    <span class="app-badge badge-sport">Fútbol 5 · Torneo Apertura</span>
+                                    <span class="app-time">Miércoles 21:00 hs</span>
+                                </div>
+                                <h4 class="app-match-title">Los Galácticos vs Amigos FC</h4>
+                                <p class="app-venue">📍 Cancha 3 · Complejo Deportivo Plaza Oeste</p>
+                                
+                                <div class="app-divider"></div>
+
+                                <div class="app-status-box">
+                                    <div class="app-status-row">
+                                        <span class="app-status-icon">✅</span>
+                                        <div>
+                                            <strong>Solicitud Aceptada por el Capitán</strong>
+                                            <p class="app-subtext">El capitán Mateo Rossi validó tu solicitud de incorporación.</p>
+                                        </div>
+                                    </div>
+                                    <div class="app-status-row">
+                                        <span class="app-status-icon">🎟️</span>
+                                        <div>
+                                            <strong>Lugar físico reservado</strong>
+                                            <p class="app-subtext">Cupo 9 de 10 asegurado temporalmente para ti.</p>
+                                        </div>
+                                    </div>
+                                    <div class="app-countdown-chip">
+                                        ⏳ Ventana de reserva: <strong>02h 44m restantes</strong>
+                                    </div>
+                                </div>
+
+                                <div class="app-action-area">
+                                    <button type="button" class="app-confirm-btn" id="btn-mock-confirmar" onclick="accionConfirmarMockup()">
+                                        Confirmar mi asistencia al partido
+                                    </button>
+                                    <p class="app-note" id="mock-r5-note">
+                                        * Al confirmar, tu vacante pasará a estado definitivo en la planilla arbitral.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel Vista 2: R6 (Onboarding sin valoración) -->
+                        <div class="mockup-screen-view" id="view-mock-r6">
+                            <div class="app-card">
+                                <div class="app-profile-header">
+                                    <div class="app-avatar">⚽</div>
+                                    <div>
+                                        <h4 class="app-player-name">Nicolás Gómez</h4>
+                                        <span class="app-badge badge-debut">Jugador Debutante</span>
+                                    </div>
+                                </div>
+
+                                <div class="app-rating-box">
+                                    <span class="app-rating-title">Valoración deportiva:</span>
+                                    <div class="app-rating-value">
+                                        <span class="app-no-score">Sin puntuación previa</span>
+                                        <span class="app-ethical-tag">🛡️ Puntuación no inventada</span>
+                                    </div>
+                                    <p class="app-subtext">Convocado no inventa estadísticas ficticias: tu reputación se construirá con partidos jugados.</p>
+                                </div>
+
+                                <div class="app-alert-box alert-missing-data">
+                                    <h5>⚠️ Solicitud autorizada · Faltan antecedentes</h5>
+                                    <p>
+                                        Autorizaste sumarte a <strong>Los Galácticos</strong>. Al no registrar antecedentes en el sistema, tu solicitud ha sido derivada a <strong>evaluación manual por el capitán</strong>.
+                                    </p>
+                                    <div class="app-ticket-info">
+                                        <span>Ticket #AUD-4092</span>
+                                        <span class="ticket-status">En revisión de Mateo Rossi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel Vista 3: Capitán (Mesa de Revisión Manual) -->
+                        <div class="mockup-screen-view" id="view-mock-capitan">
+                            <div class="app-card">
+                                <div class="app-card-header">
+                                    <span class="app-badge badge-captain">Panel de Capitán</span>
+                                    <span class="app-time">Partido Miércoles 21:00 hs</span>
+                                </div>
+                                <h4 class="app-match-title">Solicitud derivada para evaluación manual</h4>
+                                <p class="app-subtext">El agente de Convocado derivó esta solicitud al detectar falta de antecedentes previos:</p>
+
+                                <div class="app-applicant-card">
+                                    <div class="applicant-row">
+                                        <strong>Postulante:</strong> Nicolás Gómez (Debutante)
+                                    </div>
+                                    <div class="applicant-row">
+                                        <strong>Posición declarada:</strong> Mediocampista / Defensor
+                                    </div>
+                                    <div class="applicant-row">
+                                        <strong>Mensaje personal:</strong> "Jugué torneos intercolegiales, busco equipo para sumar compromiso semanal."
+                                    </div>
+                                </div>
+
+                                <div class="captain-actions" id="captain-actions-box">
+                                    <button type="button" class="btn-cap-approve" onclick="accionCapitanAprobar()">
+                                        ✅ Autorizar como Jugador a Prueba
+                                    </button>
+                                    <button type="button" class="btn-cap-reject" onclick="accionCapitanRechazar()">
+                                        Pedir referencias previas
+                                    </button>
+                                </div>
+                                <div id="captain-response-msg" class="app-success-toast" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 06: Conclusión y Enfoque -->
+        <section id="conclusion" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <div>
+                        <h2>Conclusión y Reflexión Agéntica</h2>
+                        <p class="section-subtitle">Articulación técnica, aprendizaje y cumplimiento integral de la consigna</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <article class="card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Síntesis de la Propuesta</h3>
+                        <p>
+                            Para la startup <strong>Convocado</strong> (Grupo 30), transformamos dos premisas de lógica proposicional en una experiencia de usuario robusta y confiable:
+                        </p>
+                        <ul class="conclusion-list">
+                            <li><strong>En R5:</strong> Respetamos la necesidad de doble validación (autorización del capitán y vacante física activa), agregando gestión de tiempos de gracia.</li>
+                            <li><strong>En R6:</strong> Reivindicamos el valor de la transparencia: no inventar datos mediante IA ni algoritmos opacos, garantizando revisión humana justa.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-highlight">
+                        <div class="card-icon">🚀</div>
+                        <h3>El Rol de la IA y el Equipo</h3>
+                        <p>
+                            El desafío de construcción 100% agéntica demostró que programar con agentes de IA no implica perder el control del producto:
+                        </p>
+                        <p>
+                            El grupo analizó la lógica, detectó requisitos omitidos (como el logo y los desplegables de la rúbrica), definió la arquitectura y redactó las directivas; el agente generó el código y aplicó las mejoras iterativas.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página Semántico -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-row">
+                    <img src="assets/img/convocado-logo.webp" alt="Convocado logo miniatura" width="36" height="36" class="footer-mini-logo">
+                    <span class="footer-title">Convocado · Soluciones Agénticas</span>
+                </div>
+                <p class="footer-subtitle">Trabajo Práctico N° 3 · "Dos sentencias, dos soluciones"</p>
+                <p class="footer-group">Grupo 30 · Desarrollo de Sistemas Web Front End</p>
+            </div>
+
+            <div class="footer-credits">
+                <p><strong>IFTS 29</strong> · 2do Cuatrimestre 2026</p>
+                <p>Startup y lógica de base: <strong>IFTS 16</strong></p>
+                <p>Evaluación: <strong>Rúbrica Aprobado / Desaprobado</strong> · Entrega: 26/11/2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de la Aplicación -->
+    <script src="js/main.js"></script>
+</body>
+</html>
