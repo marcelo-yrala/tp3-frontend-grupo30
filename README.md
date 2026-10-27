@@ -29,9 +29,10 @@
 | Integrante | Rol / Aportes Concretos |
 | :--- | :--- |
 | **Marcelo Yrala** | Coordinación general, dirección de prompts al agente de IA para estructura semántica y diseño CSS, verificación de lógica de R5. |
-| **Integrante 2** *(Nombre a completar por el grupo)* | Desarme formal de sentencias proposicionales, diseño del circuito ético de R6 y casos límites de intervención humana. |
-| **Integrante 3** *(Nombre a completar por el grupo)* | Pruebas de funcionamiento en desktop, auditoría de accesibilidad por teclado (`<details>`) y verificación contra la rúbrica oficial. |
-| **Integrante 4** *(Nombre a completar por el grupo)* | Preparación de assets (descarga y adaptación del logo oficial `S08.webp`), documentación del README y despliegue del sitio. |
+| **Integrante 2** *(Nombre a completar)* | Desarme formal de sentencias proposicionales, diseño del circuito ético de R6 y casos límites de intervención humana. |
+| **Integrante 3** *(Nombre a completar)* | Pruebas de funcionamiento en desktop, auditoría de accesibilidad por teclado (`<details>`) y verificación contra la rúbrica oficial. |
+| **Integrante 4** *(Nombre a completar)* | Preparación de assets (descarga y adaptación del logo oficial `S08.webp`), documentación del README y despliegue del sitio. |
+| **Integrante 5** *(Nombre a completar)* | Revisión y pruebas cruzadas del simulador de casos y mockup interactivo, control de enlaces públicos y verificación de compatibilidad. |
 
 #### 🔄 Evidencia de Revisión entre Integrantes y Mejora Colaborativa (Nivel Propone · Rúbrica 01)
 * **Revisión interna efectuada:** Tras una primera versión del sitio construida con tarjetas estáticas, el equipo contrastó el resultado contra la Rúbrica 03 y 04 de la página 8 del PDF.
