@@ -8,16 +8,17 @@
 * **Startup Asignada:** Convocado
 * **Rubro de la Startup:** Deportes y conexión de equipos (Red para que jugadores encuentren equipos y soliciten participar en partidos).
 * **Bloque Asignado:** Asistencia y datos faltantes
-* **Sorteo Docente:** S10-B / S08-C (Página 42 de la consigna oficial)
+* **Sorteo Docente:** ASIGNACIÓN DOCENTE · SORTEO · S08-C (Página 42 de la consigna oficial)
 * **Fecha de Entrega:** 26/11/2026
 * **Modalidad de Evaluación:** Rúbrica oficial (Sin nota numérica · Aprobado / Desaprobado · Niveles: *No cumple*, *Cumple*, *Propone*)
 * **Enfoque de Construcción:** **100% Agéntico** (*"Ustedes dirigen. El agente construye"*).
 
 ---
 
-### 🔗 Enlaces del Proyecto (Rúbrica 02)
+### 🔗 Enlaces y Documentación del Proyecto (Rúbrica 02)
 * **Repositorio en GitHub:** [https://github.com/marcelo-yrala/tp3-frontend-grupo30](https://github.com/marcelo-yrala/tp3-frontend-grupo30)
 * **Landing Page Publicada (Producción):** [https://marcelo-yrala.github.io/tp3-frontend-grupo30/convocado-tp3/](https://marcelo-yrala.github.io/tp3-frontend-grupo30/convocado-tp3/) *(o enlace equivalente en Vercel / GitHub Pages)*
+* **Memoria Técnica y Desarme Lógico Detallado:** [ANALISIS_Y_PLANIFICACION_GRUPO30.md](./ANALISIS_Y_PLANIFICACION_GRUPO30.md)
 
 > **Comprobación de accesibilidad sin sesión:** Ambos enlaces son públicos y pueden abrirse en una ventana en modo incógnito/privado sin necesidad de autenticación previa.
 
@@ -30,7 +31,7 @@
 | **Marcelo Yrala** | Coordinación general, dirección de prompts al agente de IA para estructura semántica y diseño CSS, verificación de lógica de R5. |
 | **Integrante 2** *(Nombre a completar por el grupo)* | Desarme formal de sentencias proposicionales, diseño del circuito ético de R6 y casos límites de intervención humana. |
 | **Integrante 3** *(Nombre a completar por el grupo)* | Pruebas de funcionamiento en desktop, auditoría de accesibilidad por teclado (`<details>`) y verificación contra la rúbrica oficial. |
-| **Integrante 4** *(Nombre a completar por el grupo)* | Preparación de assets (descarga y adaptación del logo oficial `logo_S10.webp`), documentación del README y despliegue del sitio. |
+| **Integrante 4** *(Nombre a completar por el grupo)* | Preparación de assets (descarga y adaptación del logo oficial `S08.webp`), documentación del README y despliegue del sitio. |
 
 #### 🔄 Evidencia de Revisión entre Integrantes y Mejora Colaborativa (Nivel Propone · Rúbrica 01)
 * **Revisión interna efectuada:** Tras una primera versión del sitio construida con tarjetas estáticas, el equipo contrastó el resultado contra la Rúbrica 03 y 04 de la página 8 del PDF.
