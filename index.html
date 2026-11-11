@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,8 +36,33 @@
             </div>
 
             <p class="hero-description">
-                Presentamos dos soluciones agénticas para el bloque <strong>Asistencia y datos faltantes</strong>. Cada propuesta traduce las reglas de lógica proposicional en flujos claros, con representación gráfica, gestión de casos límite y detalles explorables en desplegables interactivos.
+                Dos flujos inteligentes para que cada convocatoria sea más clara, justa y segura. Explorá las soluciones para <strong>Asistencia y datos faltantes</strong> y descubrí cómo responde Convocado ante cada escenario.
             </p>
+
+            <section class="executive-summary" aria-labelledby="summary-title">
+                <div class="executive-summary-heading">
+                    <span class="summary-kicker">Lectura en 30 segundos</span>
+                    <h2 id="summary-title">Precisión en cada convocatoria</h2>
+                </div>
+                <p>Convocado conecta jugadores con equipos. El Grupo 30 propone una solución para proteger cupos y otra para evaluar jugadores sin historial, sin inventar puntuaciones.</p>
+                <div class="summary-points">
+                    <div><strong>R5 · Booking Guard</strong><span>Confirma asistencia solo con aceptación y reserva vigentes.</span></div>
+                    <div><strong>R6 · FairPlay</strong><span>Deriva casos sin valoración a revisión humana transparente.</span></div>
+                </div>
+            </section>
+
+            <div class="hero-actions" aria-label="Accesos rápidos a las propuestas">
+                <a class="hero-action hero-action-r5" href="#flujo1">
+                    <span class="hero-action-code">R5 · BOOKING GUARD</span>
+                    <strong>Proteger cada cupo</strong>
+                    <span>Reserva vigente · Confirmación segura</span>
+                </a>
+                <a class="hero-action hero-action-r6" href="#flujo2">
+                    <span class="hero-action-code">R6 · FAIRPLAY</span>
+                    <strong>Evaluar con transparencia</strong>
+                    <span>Sin score inventado · Revisión humana</span>
+                </a>
+            </div>
 
             <div class="hero-meta" aria-label="Metadatos del trabajo">
                 <div class="meta-item">
@@ -69,6 +94,10 @@
             <a href="#simulador" class="nav-link">04 · Simulador de Casos</a>
             <a href="#mockup" class="nav-link">05 · Mockup App Convocado</a>
             <a href="#conclusion" class="nav-link">06 · Conclusión y Enfoque</a>
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true" aria-label="Cambiar a modo claro">
+                <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+                <span class="theme-toggle-label">Modo claro</span>
+            </button>
         </div>
     </nav>
 
@@ -164,17 +193,31 @@
                         </div>
                     </article>
                 </div>
+
+                <div class="reading-guide" aria-label="Guía de lectura de la propuesta">
+                    <h3>Cómo leer cada solución</h3>
+                    <div class="reading-guide-items">
+                        <span><b class="guide-dot guide-rule"></b>Regla original de la sentencia</span>
+                        <span><b class="guide-dot guide-proposal"></b>Decisión propuesta por el Grupo 30</span>
+                        <span><b class="guide-dot guide-edge"></b>Caso límite o excepción</span>
+                        <span><b class="guide-dot guide-human"></b>Intervención humana</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- SECCIÓN 02: Flujo 1 · R5 -->
-        <section id="flujo1" class="section section-alt">
+        <section id="flujo1" class="section section-alt flow-section flow-r5">
             <div class="container">
                 <div class="section-header">
                     <span class="section-number">02</span>
                     <div>
                         <h2>Flujo Agéntico 1 · Confirmación de Asistencia</h2>
                         <p class="solution-title">Propuesta: <strong>"Booking Guard Agent · Custodia Dinámica de Cupos"</strong></p>
+                    </div>
+                    <div class="flow-signature" aria-label="Identidad del flujo R5">
+                        <span class="flow-signature-mark">R5</span>
+                        <span><strong>BOOKING GUARD</strong><small>Precisión · cupos · confirmación segura</small></span>
                     </div>
                 </div>
 
@@ -185,6 +228,23 @@
                     </p>
                 </div>
 
+                <div class="proposal-card">
+                    <div class="proposal-card-title">
+                        <span class="proposal-index">R5</span>
+                        <div>
+                            <span class="proposal-kicker">Ficha de propuesta</span>
+                            <h3>Seguridad operativa para cada cupo</h3>
+                        </div>
+                    </div>
+                    <div class="proposal-card-grid">
+                        <div><strong>Problema</strong><span>Confirmaciones sobre lugares que ya no existen.</span></div>
+                        <div><strong>Entrada</strong><span>Aceptación del capitán y reserva vigente.</span></div>
+                        <div><strong>Decisión</strong><span><code>P ∧ Q</code>: ambas condiciones deben ser verdaderas.</span></div>
+                        <div><strong>Resultado</strong><span>Habilitar confirmación o proteger la lista de espera.</span></div>
+                    </div>
+                    <p class="proposal-note"><span class="guide-dot guide-edge"></span>El timeout y la promoción de suplentes son decisiones agregadas por el grupo.</p>
+                </div>
+
                 <!-- Diagrama Gráfico Mermaid Flujo 1 -->
                 <div class="card card-diagram">
                     <div class="diagram-header">
@@ -192,6 +252,9 @@
                         <span class="diagram-tag">Diagrama interactivo de decisiones</span>
                     </div>
                     <p class="diagram-instruction">El recorrido muestra el evento entrante, las herramientas consultadas, la bifurcación lógica y la resolución de casos límite con intervención de reserva.</p>
+                    <div class="diagram-steps" aria-label="Resumen del recorrido R5">
+                        <span><b>1</b> Entra la aceptación</span><span><b>2</b> Se consulta la reserva</span><span><b>3</b> Se evalúa P ∧ Q</span><span><b>4</b> Se confirma o se libera</span>
+                    </div>
                     
                     <div class="mermaid">
 flowchart TD
@@ -301,13 +364,17 @@ flowchart TD
         </section>
 
         <!-- SECCIÓN 03: Flujo 2 · R6 -->
-        <section id="flujo2" class="section">
+        <section id="flujo2" class="section flow-section flow-r6">
             <div class="container">
                 <div class="section-header">
                     <span class="section-number">03</span>
                     <div>
                         <h2>Flujo Agéntico 2 · Falta de Valoración y Evaluación Manual</h2>
                         <p class="solution-title">Propuesta: <strong>"FairPlay Onboarding · Auditoría Transparente sin Sesgo"</strong></p>
+                    </div>
+                    <div class="flow-signature" aria-label="Identidad del flujo R6">
+                        <span class="flow-signature-mark">R6</span>
+                        <span><strong>FAIRPLAY ONBOARDING</strong><small>Transparencia · evaluación humana · juego limpio</small></span>
                     </div>
                 </div>
 
@@ -318,6 +385,23 @@ flowchart TD
                     </p>
                 </div>
 
+                <div class="proposal-card">
+                    <div class="proposal-card-title">
+                        <span class="proposal-index">R6</span>
+                        <div>
+                            <span class="proposal-kicker">Ficha de propuesta</span>
+                            <h3>Transparencia y juego limpio</h3>
+                        </div>
+                    </div>
+                    <div class="proposal-card-grid">
+                        <div><strong>Problema</strong><span>La ausencia de historial no debe convertirse en una mala valoración.</span></div>
+                        <div><strong>Entrada</strong><span>Autorización de solicitud y valoración histórica nula.</span></div>
+                        <div><strong>Decisión</strong><span><code>P ∧ Q</code>: sin valoración y con autorización.</span></div>
+                        <div><strong>Resultado</strong><span>Informar, mantener <code>rating = NULL</code> y derivar.</span></div>
+                    </div>
+                    <p class="proposal-note"><span class="guide-dot guide-human"></span>La mesa humana decide ante el caso normal; la urgencia activa un canal express.</p>
+                </div>
+
                 <!-- Diagrama Gráfico Mermaid Flujo 2 -->
                 <div class="card card-diagram">
                     <div class="diagram-header">
@@ -325,6 +409,9 @@ flowchart TD
                         <span class="diagram-tag">Diagrama interactivo de decisiones</span>
                     </div>
                     <p class="diagram-instruction">El recorrido muestra la detección del perfil sin antecedentes, la salvaguarda ética (puntaje = nulo) y la intervención de evaluación humana.</p>
+                    <div class="diagram-steps" aria-label="Resumen del recorrido R6">
+                        <span><b>1</b> Entra la autorización</span><span><b>2</b> Se consulta el historial</span><span><b>3</b> Se bloquea el score ficticio</span><span><b>4</b> Decide una persona</span>
+                    </div>
 
                     <div class="mermaid">
 flowchart TD
@@ -452,6 +539,9 @@ flowchart TD
                 <p class="section-intro">
                     La consigna solicita: <em>"Recorran un caso que cumpla la condición y otro que no, para cada flujo"</em>. Utilizá los selectores a continuación para experimentar cómo responde el agente frente a cada escenario:
                 </p>
+                <div class="scope-note">
+                    <strong>Alcance de esta demostración:</strong> estos controles representan la lógica de la propuesta; no ejecutan agentes reales ni se conectan a APIs, bases de datos o servicios externos.
+                </div>
 
                 <div class="grid grid-2">
                     <!-- Simulador Flujo 1 -->
@@ -471,6 +561,7 @@ flowchart TD
                             <button type="button" class="sim-btn" id="btn-f1-timeout" onclick="simularFlujo1('timeout')">
                                 Caso Límite C: Expiración por timeout
                             </button>
+                            <button type="button" class="sim-reset-btn" onclick="simularFlujo1('exito')">↺ Restablecer caso base</button>
                         </div>
 
                         <div class="sim-output" id="output-f1">
@@ -503,6 +594,7 @@ flowchart TD
                             <button type="button" class="sim-btn" id="btn-f2-urgente" onclick="simularFlujo2('urgente')">
                                 Caso Límite C: Partido urgente (< 2 hs)
                             </button>
+                            <button type="button" class="sim-reset-btn" onclick="simularFlujo2('noval')">↺ Restablecer caso base</button>
                         </div>
 
                         <div class="sim-output" id="output-f2">
@@ -713,6 +805,18 @@ flowchart TD
                         </p>
                     </article>
                 </div>
+
+                <div class="decisions-panel">
+                    <div>
+                        <span class="proposal-kicker">Criterio del grupo</span>
+                        <h3>Qué agregamos y por qué</h3>
+                    </div>
+                    <div class="decisions-list">
+                        <p><strong>R5 · Timeout:</strong> protege al equipo cuando una reserva queda inmovilizada sin confirmación.</p>
+                        <p><strong>R6 · Revisión humana:</strong> evita confundir la falta de datos con una valoración negativa.</p>
+                        <p><strong>Alcance:</strong> la landing explica una propuesta; no reemplaza un backend, una API ni un agente real.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -738,6 +842,6 @@ flowchart TD
     </footer>
 
     <!-- Scripts de la Aplicación -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=theme-toggle"></script>
 </body>
 </html>

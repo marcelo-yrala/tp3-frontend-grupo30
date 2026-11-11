@@ -5,6 +5,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    inicializarTema();
+
     // 1. Inicialización de Mermaid.js con paleta oscura coordinada
     if (window.mermaid) {
         mermaid.initialize({
@@ -23,10 +25,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 fontSize: '14px'
             }
         });
+
     }
 
     console.log('✅ TP3 Convocado - Grupo 30 cargado con éxito. Enfoque 100% agéntico.');
 });
+
+function inicializarTema() {
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const temaGuardado = localStorage.getItem('convocado-theme');
+    const temaInicial = temaGuardado === 'light' ? 'light' : 'dark';
+
+    aplicarTema(temaInicial);
+
+    toggle?.addEventListener('click', () => {
+        const temaActual = root.dataset.theme === 'dark' ? 'dark' : 'light';
+        aplicarTema(temaActual === 'dark' ? 'light' : 'dark');
+    });
+}
+
+function aplicarTema(tema) {
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const esOscuro = tema === 'dark';
+
+    root.dataset.theme = tema;
+    localStorage.setItem('convocado-theme', tema);
+
+    if (toggle) {
+        toggle.setAttribute('aria-pressed', String(esOscuro));
+        toggle.setAttribute('aria-label', esOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        toggle.innerHTML = esOscuro
+            ? '<span class="theme-toggle-icon" aria-hidden="true">☀</span><span class="theme-toggle-label">Modo claro</span>'
+            : '<span class="theme-toggle-icon" aria-hidden="true">☾</span><span class="theme-toggle-label">Modo oscuro</span>';
+    }
+}
 
 /**
  * Simulador de Casos para Flujo 1 (R5 - Confirmación de Asistencia)
@@ -80,6 +114,12 @@ function simularFlujo1(caso) {
             </div>
         `;
     }
+
+    actualizarVariablesLogicas(output, caso === 'exito'
+        ? [['Capitán aceptó', 'TRUE'], ['Lugar reservado', 'TRUE']]
+        : caso === 'nocupo'
+            ? [['Capitán aceptó', 'TRUE'], ['Lugar reservado', 'FALSE']]
+            : [['Capitán aceptó', 'TRUE'], ['Confirmó a tiempo', 'FALSE']], caso === 'exito');
 }
 
 /**
@@ -133,6 +173,31 @@ function simularFlujo2(caso) {
             </div>
         `;
     }
+
+    actualizarVariablesLogicas(output, caso === 'noval'
+        ? [['Jugador sin valoración', 'TRUE'], ['Autoriza solicitud', 'TRUE']]
+        : caso === 'conval'
+            ? [['Jugador sin valoración', 'FALSE'], ['Autoriza solicitud', 'TRUE']]
+            : [['Jugador sin valoración', 'TRUE'], ['Partido inminente', 'TRUE']], caso === 'noval');
+}
+
+function actualizarVariablesLogicas(output, variables, condicionCumplida) {
+    const variablesHtml = variables.map(([label, value]) => `
+        <div class="logic-variable">
+            <span>${label}</span>
+            <strong>${value}</strong>
+        </div>
+    `).join('');
+
+    output.insertAdjacentHTML('afterbegin', `
+        <div class="logic-inputs">
+            <div class="logic-inputs-header">
+                <span>Variables del caso</span>
+                <strong>${condicionCumplida ? 'Regla cumplida' : 'Regla no cumplida o excepción'}</strong>
+            </div>
+            <div class="logic-variable-list">${variablesHtml}</div>
+        </div>
+    `);
 }
 
 /**
@@ -196,4 +261,3 @@ function accionCapitanRechazar() {
     msg.style.color = '#fde68a';
     msg.innerHTML = '📩 <strong>Solicitud en espera:</strong> Se envió un formulario breve a Nicolás Gómez solicitando referencias deportivas previas antes de confirmar.';
 }
-
