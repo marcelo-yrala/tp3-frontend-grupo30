@@ -96,6 +96,20 @@
 
 ---
 
+### 🎨 Sistema de Diseño Visual: Athletic Velocity & Precision (Versión Actualizada)
+* **Estilo Visual:** *Athletic Velocity & Precision* (Stitch Design System).
+* **Paleta:** Entorno Slate técnico de ultra-profundidad (`#0b1326`, `#080c14`, `#171f33`), acentos Verde Césped Eléctrico (`#4be277`, `#22c55e`), Cian Táctico (`#89ceff`), Ámbar de Advertencia (`#ffba61`) y Rojo Estadio (`#ef4444`).
+* **Tipografía:** *Outfit* (títulos, display, métricas, insignias) y *Manrope* (cuerpo de texto nítido y descansado).
+* **Trama Táctica:** Pitch grid sutil de cancha deportiva y chasis de telemetría con resplandores en bordes activos.
+* **Preservación Total del Contenido:** Todo el contenido (sentencias textuales, desarmes formales, diagramas Mermaid interactivos, diagramas de nodos en cascada, desplegables técnicos, simulador de casos en vivo, mockup interactivo de la app y checklist de rúbrica) se mantiene íntegro y sin alteraciones.
+* **Archivos Disponibles:**
+  * `index.html`: Versión activa principal con el sistema de diseño completo.
+  * `index_v2.html`: Copia fiel de la versión con diseño Athletic Velocity & Precision.
+  * `index_v1_backup.html`: Respaldo histórico de la versión previa.
+  * `css/athletic-velocity.css`: Hoja de estilos del sistema visual.
+
+---
+
 ### 💻 Cómo reproducir y ejecutar el proyecto localmente
 
 1. Clonar el repositorio:

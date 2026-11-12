@@ -1,65 +1,184 @@
 /**
  * TP3 · FRONT END 2026 · IFTS 29
  * GRUPO 30 · STARTUP: CONVOCADO
- * Lógica interactiva del simulador de casos y soporte de accesibilidad
+ * Lógica interactiva del simulador de casos, maquetas interactivas,
+ * acordeones accesibles, tema visual y navegación móvil.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     inicializarTema();
+    inicializarMenuHamburguesa();
+    inicializarAcordeones();
 
-    // 1. Inicialización de Mermaid.js con paleta oscura coordinada
+    // 1. Inicialización de Mermaid.js con paleta atlética deportiva (Athletic Velocity & Precision)
     if (window.mermaid) {
         mermaid.initialize({
             startOnLoad: true,
             theme: 'base',
             themeVariables: {
                 darkMode: true,
-                background: '#0b0d1b',
-                primaryColor: '#1e2246',
-                primaryTextColor: '#f8fafc',
-                primaryBorderColor: '#6366f1',
-                lineColor: '#818cf8',
-                secondaryColor: '#2e1065',
-                tertiaryColor: '#111827',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '14px'
+                background: '#0b1326',
+                primaryColor: '#171f33',
+                primaryTextColor: '#dae2fd',
+                primaryBorderColor: '#4be277',
+                lineColor: '#89ceff',
+                secondaryColor: '#131b2e',
+                tertiaryColor: '#222a3d',
+                fontFamily: 'Outfit, Manrope, sans-serif',
+                fontSize: '13px'
             }
         });
-
     }
 
     console.log('✅ TP3 Convocado - Grupo 30 cargado con éxito. Enfoque 100% agéntico.');
 });
 
+/**
+ * Control del Modo Oscuro / Claro con sincronización de Tailwind y data-theme
+ */
 function inicializarTema() {
     const root = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
     const temaGuardado = localStorage.getItem('convocado-theme');
-    const temaInicial = temaGuardado === 'light' ? 'light' : 'dark';
+    const temaInicial = temaGuardado ? temaGuardado : 'dark';
 
     aplicarTema(temaInicial);
 
-    toggle?.addEventListener('click', () => {
-        const temaActual = root.dataset.theme === 'dark' ? 'dark' : 'light';
-        aplicarTema(temaActual === 'dark' ? 'light' : 'dark');
+    toggle?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const esOscuroActual = root.classList.contains('dark') || root.dataset.theme === 'dark';
+        const nuevoTema = esOscuroActual ? 'light' : 'dark';
+        aplicarTema(nuevoTema);
     });
 }
 
 function aplicarTema(tema) {
     const root = document.documentElement;
+    const body = document.body;
     const toggle = document.getElementById('theme-toggle');
     const esOscuro = tema === 'dark';
 
     root.dataset.theme = tema;
+    if (esOscuro) {
+        root.classList.add('dark');
+        root.classList.remove('light');
+        if (body) {
+            body.classList.add('dark');
+            body.classList.remove('light');
+        }
+    } else {
+        root.classList.remove('dark');
+        root.classList.add('light');
+        if (body) {
+            body.classList.remove('dark');
+            body.classList.add('light');
+        }
+    }
     localStorage.setItem('convocado-theme', tema);
 
     if (toggle) {
         toggle.setAttribute('aria-pressed', String(esOscuro));
         toggle.setAttribute('aria-label', esOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
-        toggle.innerHTML = esOscuro
-            ? '<span class="theme-toggle-icon" aria-hidden="true">☀</span><span class="theme-toggle-label">Modo claro</span>'
-            : '<span class="theme-toggle-icon" aria-hidden="true">☾</span><span class="theme-toggle-label">Modo oscuro</span>';
+        
+        const iconSpan = document.getElementById('theme-toggle-icon');
+        const textSpan = document.getElementById('theme-toggle-text');
+        
+        if (iconSpan && textSpan) {
+            iconSpan.textContent = esOscuro ? 'light_mode' : 'dark_mode';
+            textSpan.textContent = esOscuro ? 'Modo Claro' : 'Modo Oscuro';
+        } else {
+            toggle.innerHTML = esOscuro
+                ? '<span class="material-symbols-outlined text-[18px]" id="theme-toggle-icon" aria-hidden="true">light_mode</span><span id="theme-toggle-text" class="text-xs font-outfit font-semibold hidden sm:inline">Modo Claro</span>'
+                : '<span class="material-symbols-outlined text-[18px]" id="theme-toggle-icon" aria-hidden="true">dark_mode</span><span id="theme-toggle-text" class="text-xs font-outfit font-semibold hidden sm:inline">Modo Oscuro</span>';
+        }
     }
+}
+
+/**
+ * Control del Menú Hamburguesa y Navegación Móvil
+ */
+function inicializarMenuHamburguesa() {
+    const toggleBtn = document.getElementById('menu-toggle-btn') || document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav') || document.getElementById('nav-menu');
+    const navBackdrop = document.getElementById('nav-backdrop');
+    if (!toggleBtn || !mobileNav) return;
+
+    function abrirMenu() {
+        mobileNav.classList.remove('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function cerrarMenu() {
+        mobileNav.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const estaAbierto = !mobileNav.classList.contains('hidden');
+        if (estaAbierto) {
+            cerrarMenu();
+        } else {
+            abrirMenu();
+        }
+    });
+
+    // Cerrar al hacer clic en los enlaces de navegación
+    const navLinks = document.querySelectorAll('#mobile-nav a, #nav-menu a, .nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 840) {
+                cerrarMenu();
+            }
+        });
+    });
+
+    // Cerrar al hacer clic en el backdrop
+    navBackdrop?.addEventListener('click', cerrarMenu);
+
+    // Cerrar al presionar Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileNav.classList.contains('hidden')) {
+            cerrarMenu();
+            toggleBtn.focus();
+        }
+    });
+}
+
+/**
+ * Control de Acordeones Interactivos y Desplegables
+ */
+function inicializarAcordeones() {
+    const accordions = document.querySelectorAll('.accordion-item');
+
+    accordions.forEach(item => {
+        const trigger = item.querySelector('.accordion-trigger');
+        const content = item.querySelector('.accordion-content');
+        const chevron = item.querySelector('.chevron-icon');
+        const title = item.querySelector('.trigger-title');
+        if (!trigger || !content) return;
+
+        trigger.addEventListener('click', () => {
+            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+            // Alternar estado
+            if (isOpen) {
+                trigger.setAttribute('aria-expanded', 'false');
+                content.classList.add('hidden');
+                chevron?.classList.remove('rotate-180', 'text-primary');
+                chevron?.classList.add('text-outline-variant');
+                title?.classList.remove('text-primary');
+            } else {
+                trigger.setAttribute('aria-expanded', 'true');
+                content.classList.remove('hidden');
+                chevron?.classList.add('rotate-180', 'text-primary');
+                chevron?.classList.remove('text-outline-variant');
+                title?.classList.add('text-primary');
+            }
+        });
+    });
 }
 
 /**
@@ -68,7 +187,6 @@ function aplicarTema(tema) {
  */
 function simularFlujo1(caso) {
     const output = document.getElementById('output-f1');
-    const btns = document.querySelectorAll('#flujo1 ~ #simulador #btn-f1-exito, #btn-f1-nocupo, #btn-f1-timeout');
     
     // Actualizar botones activos
     document.getElementById('btn-f1-exito')?.classList.toggle('active', caso === 'exito');
@@ -184,7 +302,7 @@ function simularFlujo2(caso) {
 function actualizarVariablesLogicas(output, variables, condicionCumplida) {
     const variablesHtml = variables.map(([label, value]) => `
         <div class="logic-variable">
-            <span>${label}</span>
+            <span>${label}:</span>
             <strong>${value}</strong>
         </div>
     `).join('');
@@ -192,8 +310,8 @@ function actualizarVariablesLogicas(output, variables, condicionCumplida) {
     output.insertAdjacentHTML('afterbegin', `
         <div class="logic-inputs">
             <div class="logic-inputs-header">
-                <span>Variables del caso</span>
-                <strong>${condicionCumplida ? 'Regla cumplida' : 'Regla no cumplida o excepción'}</strong>
+                <span>Variables del caso evaluado</span>
+                <strong>${condicionCumplida ? 'Regla Cumplida' : 'Excepción o Desvío'}</strong>
             </div>
             <div class="logic-variable-list">${variablesHtml}</div>
         </div>
@@ -226,11 +344,12 @@ function accionConfirmarMockup() {
 
     btn.disabled = true;
     btn.innerHTML = '✅ ¡Asistencia Confirmada! Vacante 9/10 asegurada';
-    btn.style.background = '#059669';
+    btn.classList.remove('bg-primary-container', 'hover:bg-primary');
+    btn.classList.add('bg-emerald-600', 'text-white');
     btn.style.boxShadow = 'none';
 
     if (note) {
-        note.innerHTML = '<span style="color: #6ee7b7; font-weight: 600;">🎉 Evento registrado con éxito. El capitán y la cancha fueron notificados.</span>';
+        note.innerHTML = '<span class="text-primary font-semibold">🎉 Evento registrado con éxito. El capitán y la cancha fueron notificados.</span>';
     }
 }
 

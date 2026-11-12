@@ -1,0 +1,991 @@
+/* ==========================================================================
+   CONVOCADO // IFTS 29 - DESIGN SYSTEM: ATHLETIC VELOCITY & PRECISION
+   Tokens, Pitch Grid, Glow Telemetry, Interactive Modules & Accessibility
+   Soporte Completo de Modo Oscuro (Predeterminado) y Modo Claro Accesible (WCAG AAA)
+   ========================================================================== */
+
+/* Variables de tema base (Dark Mode) */
+:root {
+  --surface: #0b1326;
+  --surface-dim: #0b1326;
+  --surface-bright: #31394d;
+  --surface-container-lowest: #060e20;
+  --surface-container-low: #131b2e;
+  --surface-container: #171f33;
+  --surface-container-high: #222a3d;
+  --surface-container-highest: #2d3449;
+  --on-surface: #dae2fd;
+  --on-surface-variant: #bccbb9;
+  --primary: #4be277;
+  --primary-container: #22c55e;
+  --on-primary: #003915;
+  --secondary: #89ceff;
+  --secondary-container: #00a2e6;
+  --on-secondary: #00344d;
+  --tertiary: #ffba61;
+  --tertiary-container: #ef9900;
+  --on-tertiary: #472a00;
+  --error: #ffb4ab;
+  --error-container: #93000a;
+  --outline: #869585;
+  --outline-variant: #3d4a3d;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+/* Google Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Trama de campo táctico de fútbol (Pitch Grid) en Dark Mode */
+.pitch-grid {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Resplandores y efectos cinéticos */
+.glow-primary {
+  box-shadow: 0 0 24px -4px rgba(75, 226, 119, 0.35);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 24px -4px rgba(137, 206, 255, 0.35);
+}
+
+.glow-card {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Transiciones instantáneas y nítidas (Athletic snappy) */
+.trans-fast {
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estilos de Diagramas Mermaid (Contenedor Base) */
+.mermaid {
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  opacity: 0.85;
+}
+
+/* Simulador Interactivo Base */
+.sim-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 150ms ease-out;
+  cursor: pointer;
+}
+
+.sim-btn:hover {
+  border-color: var(--primary);
+  background-color: var(--surface-container);
+}
+
+.sim-btn.active {
+  border-color: var(--primary);
+  background-color: rgba(75, 226, 119, 0.12);
+  color: var(--primary);
+  font-weight: 700;
+  box-shadow: 0 0 14px -2px rgba(75, 226, 119, 0.25);
+}
+
+.sim-reset-btn {
+  background: transparent;
+  border: 1px dashed var(--outline);
+  color: var(--on-surface-variant);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: all 150ms ease;
+}
+
+.sim-reset-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.logic-inputs {
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.logic-inputs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--outline);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 0.25rem;
+}
+
+.logic-variable-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+}
+
+.logic-variable {
+  background: var(--surface-container-low);
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.logic-variable span {
+  color: var(--on-surface-variant);
+}
+
+.logic-variable strong {
+  color: var(--primary);
+}
+
+.output-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.status-success {
+  background: rgba(75, 226, 119, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(75, 226, 119, 0.4);
+}
+
+.status-alert {
+  background: rgba(255, 180, 171, 0.15);
+  color: var(--error);
+  border: 1px solid rgba(255, 180, 171, 0.4);
+}
+
+.status-warning {
+  background: rgba(255, 186, 97, 0.15);
+  color: var(--tertiary);
+  border: 1px solid rgba(255, 186, 97, 0.4);
+}
+
+.output-description {
+  font-size: 0.875rem;
+  color: var(--on-surface);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.output-trace {
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--secondary);
+  word-break: break-all;
+}
+
+/* Mockup App Frame */
+.mockup-frame {
+  max-width: 440px;
+  margin: 0 auto;
+  background: var(--surface-container);
+  border: 2px solid var(--outline-variant);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.mockup-screen-view {
+  display: none;
+}
+
+.mockup-screen-view.active {
+  display: block;
+  animation: fadeInView 180ms ease-out forwards;
+}
+
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mockup-tab-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.mockup-tab-btn.active {
+  background: var(--primary-container);
+  color: var(--on-primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 16px rgba(75, 226, 119, 0.3);
+}
+
+/* Scrollbar estilizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container-lowest);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-container-high);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+
+/* ==========================================================================
+   SOPORTE INTEGRAL DE MODO CLARO (LIGHT THEME - WCAG AAA HIGH CONTRAST)
+   Activado automáticamente cuando html no tiene .dark o tiene [data-theme="light"]
+   ========================================================================== */
+
+html:not(.dark),
+html[data-theme="light"],
+html.light {
+  --surface: #ffffff;
+  --surface-dim: #f1f5f9;
+  --surface-bright: #ffffff;
+  --surface-container-lowest: #f1f5f9;
+  --surface-container-low: #f8fafc;
+  --surface-container: #ffffff;
+  --surface-container-high: #e2e8f0;
+  --surface-container-highest: #cbd5e1;
+  --on-surface: #0f172a;
+  --on-surface-variant: #334155;
+  --primary: #15803d;
+  --primary-container: #16a34a;
+  --on-primary: #ffffff;
+  --secondary: #0284c7;
+  --secondary-container: #0369a1;
+  --on-secondary: #ffffff;
+  --tertiary: #b45309;
+  --tertiary-container: #d97706;
+  --on-tertiary: #ffffff;
+  --error: #b91c1c;
+  --error-container: #dc2626;
+  --outline: #475569;
+  --outline-variant: #cbd5e1;
+}
+
+/* Body & Fondos de página en Modo Claro */
+html:not(.dark) body,
+html[data-theme="light"] body,
+html.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .pitch-grid,
+html[data-theme="light"] .pitch-grid,
+html.light .pitch-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+}
+
+/* Header Sticky en Modo Claro */
+html:not(.dark) header,
+html[data-theme="light"] header,
+html.light header {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Secciones y Contenedores */
+html:not(.dark) .bg-background,
+html[data-theme="light"] .bg-background,
+html.light .bg-background {
+  background-color: #f8fafc !important;
+}
+
+html:not(.dark) .bg-surface,
+html[data-theme="light"] .bg-surface,
+html.light .bg-surface {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-surface-container,
+html[data-theme="light"] .bg-surface-container,
+html.light .bg-surface-container {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+}
+
+html:not(.dark) .bg-surface-container-low,
+html[data-theme="light"] .bg-surface-container-low,
+html.light .bg-surface-container-low {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .bg-surface-container-lowest,
+html[data-theme="light"] .bg-surface-container-lowest,
+html.light .bg-surface-container-lowest {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .bg-surface-container-high,
+html[data-theme="light"] .bg-surface-container-high,
+html.light .bg-surface-container-high {
+  background-color: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) .bg-surface-bright,
+html[data-theme="light"] .bg-surface-bright,
+html.light .bg-surface-bright {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Tipografía de Alto Contraste (Legibilidad Óptima) */
+html:not(.dark) .text-on-surface,
+html[data-theme="light"] .text-on-surface,
+html.light .text-on-surface {
+  color: #0f172a !important; /* Slate 900 */
+}
+
+html:not(.dark) .text-on-surface-variant,
+html[data-theme="light"] .text-on-surface-variant,
+html.light .text-on-surface-variant {
+  color: #334155 !important; /* Slate 700 */
+}
+
+html:not(.dark) .text-outline,
+html[data-theme="light"] .text-outline,
+html.light .text-outline {
+  color: #475569 !important; /* Slate 600 */
+}
+
+html:not(.dark) .text-primary,
+html[data-theme="light"] .text-primary,
+html.light .text-primary {
+  color: #15803d !important; /* Deep Grass Green 700 */
+}
+
+html:not(.dark) .text-secondary,
+html[data-theme="light"] .text-secondary,
+html.light .text-secondary {
+  color: #0284c7 !important; /* Sky Blue 600 */
+}
+
+html:not(.dark) .text-tertiary,
+html[data-theme="light"] .text-tertiary,
+html.light .text-tertiary {
+  color: #b45309 !important; /* Amber 700 */
+}
+
+html:not(.dark) .text-error,
+html[data-theme="light"] .text-error,
+html.light .text-error {
+  color: #b91c1c !important; /* Red 700 */
+}
+
+/* Bordes en Modo Claro */
+html:not(.dark) [class*="border-outline-variant"],
+html[data-theme="light"] [class*="border-outline-variant"],
+html.light [class*="border-outline-variant"] {
+  border-color: #cbd5e1 !important; /* Slate 300 */
+}
+
+html:not(.dark) [class*="border-primary"],
+html[data-theme="light"] [class*="border-primary"],
+html.light [class*="border-primary"] {
+  border-color: rgba(22, 163, 74, 0.5) !important;
+}
+
+html:not(.dark) [class*="border-secondary"],
+html[data-theme="light"] [class*="border-secondary"],
+html.light [class*="border-secondary"] {
+  border-color: rgba(2, 132, 199, 0.5) !important;
+}
+
+html:not(.dark) [class*="border-tertiary"],
+html[data-theme="light"] [class*="border-tertiary"],
+html.light [class*="border-tertiary"] {
+  border-color: rgba(217, 119, 6, 0.5) !important;
+}
+
+html:not(.dark) [class*="border-error"],
+html[data-theme="light"] [class*="border-error"],
+html.light [class*="border-error"] {
+  border-color: rgba(220, 38, 38, 0.5) !important;
+}
+
+/* Chips, Badges e Insignias */
+html:not(.dark) .bg-primary\/10,
+html:not(.dark) .bg-primary\/5,
+html[data-theme="light"] .bg-primary\/10,
+html[data-theme="light"] .bg-primary\/5,
+html.light .bg-primary\/10,
+html.light .bg-primary\/5 {
+  background-color: #dcfce7 !important; /* Green 100 */
+  border: 1px solid #86efac !important;
+  color: #14532d !important;
+}
+
+html:not(.dark) .bg-primary\/20,
+html[data-theme="light"] .bg-primary\/20,
+html.light .bg-primary\/20 {
+  background-color: #bbf7d0 !important;
+  border: 1px solid #4ade80 !important;
+  color: #14532d !important;
+}
+
+html:not(.dark) .bg-secondary\/10,
+html:not(.dark) .bg-secondary\/5,
+html[data-theme="light"] .bg-secondary\/10,
+html[data-theme="light"] .bg-secondary\/5,
+html.light .bg-secondary\/10,
+html.light .bg-secondary\/5 {
+  background-color: #e0f2fe !important; /* Sky 100 */
+  border: 1px solid #7dd3fc !important;
+  color: #0369a1 !important;
+}
+
+html:not(.dark) .bg-secondary\/20,
+html[data-theme="light"] .bg-secondary\/20,
+html.light .bg-secondary\/20 {
+  background-color: #bae6fd !important;
+  border: 1px solid #38bdf8 !important;
+  color: #0c4a6e !important;
+}
+
+html:not(.dark) .bg-tertiary\/10,
+html:not(.dark) .bg-tertiary\/20,
+html[data-theme="light"] .bg-tertiary\/10,
+html[data-theme="light"] .bg-tertiary\/20,
+html.light .bg-tertiary\/10,
+html.light .bg-tertiary\/20 {
+  background-color: #fef3c7 !important; /* Amber 100 */
+  border: 1px solid #fde68a !important;
+  color: #78350f !important;
+}
+
+html:not(.dark) .bg-error\/5,
+html:not(.dark) .bg-error\/10,
+html:not(.dark) .bg-error\/20,
+html[data-theme="light"] .bg-error\/5,
+html[data-theme="light"] .bg-error\/10,
+html[data-theme="light"] .bg-error\/20,
+html.light .bg-error\/5,
+html.light .bg-error\/10,
+html.light .bg-error\/20 {
+  background-color: #fee2e2 !important; /* Red 100 */
+  border: 1px solid #fca5a5 !important;
+  color: #7f1d1d !important;
+}
+
+/* Botón de Rúbrica y CTAs */
+html:not(.dark) .bg-primary-container,
+html[data-theme="light"] .bg-primary-container,
+html.light .bg-primary-container {
+  background-color: #16a34a !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(22, 163, 74, 0.25) !important;
+}
+
+html:not(.dark) .bg-primary-container:hover,
+html[data-theme="light"] .bg-primary-container:hover,
+html.light .bg-primary-container:hover {
+  background-color: #15803d !important;
+}
+
+/* Conectores en los Diagramas de Nodos Stitch */
+html:not(.dark) .bg-outline-variant,
+html[data-theme="light"] .bg-outline-variant,
+html.light .bg-outline-variant {
+  background-color: #94a3b8 !important; /* Línea de conexión visible */
+}
+
+html:not(.dark) .material-symbols-outlined.absolute,
+html[data-theme="light"] .material-symbols-outlined.absolute,
+html.light .material-symbols-outlined.absolute {
+  background-color: #ffffff !important;
+  padding: 3px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Códigos y Pills */
+html:not(.dark) code,
+html[data-theme="light"] code,
+html.light code {
+  color: #15803d !important;
+  background-color: #f1f5f9 !important;
+  padding: 1px 4px !important;
+  border-radius: 4px !important;
+  border: 1px solid #e2e8f0 !important;
+  font-weight: 600 !important;
+}
+
+/* Blockquotes */
+html:not(.dark) blockquote,
+html[data-theme="light"] blockquote,
+html.light blockquote {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+
+/* ==========================================================================
+   DIAGRAMAS MERMAID EN MODO CLARO (VISIBILIDAD TOTAL & ALTO CONTRASTE)
+   ========================================================================== */
+
+html:not(.dark) .mermaid,
+html[data-theme="light"] .mermaid,
+html.light .mermaid {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.75rem;
+  padding: 1.5rem 0.5rem;
+}
+
+html:not(.dark) .mermaid svg,
+html[data-theme="light"] .mermaid svg,
+html.light .mermaid svg {
+  filter: none !important;
+}
+
+/* Nodos Regulares (Rectángulos, Círculos, etc.): Fondo Blanco Puro y Borde Azul/Slate 800 */
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) rect,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) circle,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) path,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) rect,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) circle,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) path,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) rect,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) circle,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) path {
+  fill: #ffffff !important;
+  stroke: #0284c7 !important; /* Sky 600 */
+  stroke-width: 2px !important;
+}
+
+/* Nodos de Decisión / Diamantes / Rombos (Cond1, EsperaConfirm, DecisionNo): Fondo Verde Suave y Borde Verde Fuerte */
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) polygon,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) polygon,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) polygon {
+  fill: #f0fdf4 !important; /* Green 50 */
+  stroke: #16a34a !important; /* Green 600 */
+  stroke-width: 2.5px !important;
+}
+
+/* TEXTOS DENTRO DE TODOS LOS NODOS REGULARES: Slate 900 Ultra Nítido */
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) .nodeLabel,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) span,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) p,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) div,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) text,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) tspan,
+html:not(.dark) .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) foreignObject *,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) .nodeLabel,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) span,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) p,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) div,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) text,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) tspan,
+html[data-theme="light"] .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) foreignObject *,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) .nodeLabel,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) span,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) p,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) div,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) text,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) tspan,
+html.light .mermaid .node:not(.nodoExito):not(.nodoAlerta):not(.nodoNo) foreignObject * {
+  color: #0f172a !important; /* Slate 900 */
+  fill: #0f172a !important;
+  font-weight: 700 !important;
+  font-family: 'Outfit', 'Manrope', sans-serif !important;
+}
+
+/* Nodos Terminales de Éxito (.nodoExito): Verde Esmeralda Sólido con Texto Blanco Puro */
+html:not(.dark) .mermaid .nodoExito rect,
+html:not(.dark) .mermaid .nodoExito circle,
+html:not(.dark) .mermaid .nodoExito polygon,
+html[data-theme="light"] .mermaid .nodoExito rect,
+html[data-theme="light"] .mermaid .nodoExito circle,
+html[data-theme="light"] .mermaid .nodoExito polygon,
+html.light .mermaid .nodoExito rect,
+html.light .mermaid .nodoExito circle,
+html.light .mermaid .nodoExito polygon {
+  fill: #15803d !important; /* Green 700 */
+  stroke: #166534 !important; /* Green 800 */
+  stroke-width: 2.5px !important;
+}
+
+html:not(.dark) .mermaid .nodoExito .nodeLabel,
+html:not(.dark) .mermaid .nodoExito span,
+html:not(.dark) .mermaid .nodoExito div,
+html:not(.dark) .mermaid .nodoExito text,
+html:not(.dark) .mermaid .nodoExito tspan,
+html:not(.dark) .mermaid .nodoExito foreignObject *,
+html[data-theme="light"] .mermaid .nodoExito .nodeLabel,
+html[data-theme="light"] .mermaid .nodoExito span,
+html[data-theme="light"] .mermaid .nodoExito div,
+html[data-theme="light"] .mermaid .nodoExito text,
+html[data-theme="light"] .mermaid .nodoExito tspan,
+html[data-theme="light"] .mermaid .nodoExito foreignObject *,
+html.light .mermaid .nodoExito .nodeLabel,
+html.light .mermaid .nodoExito span,
+html.light .mermaid .nodoExito div,
+html.light .mermaid .nodoExito text,
+html.light .mermaid .nodoExito tspan,
+html.light .mermaid .nodoExito foreignObject * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Nodos Terminales de Alerta / Timeout (.nodoAlerta): Ámbar Sólido con Texto Blanco Puro */
+html:not(.dark) .mermaid .nodoAlerta rect,
+html:not(.dark) .mermaid .nodoAlerta circle,
+html:not(.dark) .mermaid .nodoAlerta polygon,
+html[data-theme="light"] .mermaid .nodoAlerta rect,
+html[data-theme="light"] .mermaid .nodoAlerta circle,
+html[data-theme="light"] .mermaid .nodoAlerta polygon,
+html.light .mermaid .nodoAlerta rect,
+html.light .mermaid .nodoAlerta circle,
+html.light .mermaid .nodoAlerta polygon {
+  fill: #d97706 !important; /* Amber 600 */
+  stroke: #b45309 !important; /* Amber 700 */
+  stroke-width: 2.5px !important;
+}
+
+html:not(.dark) .mermaid .nodoAlerta .nodeLabel,
+html:not(.dark) .mermaid .nodoAlerta span,
+html:not(.dark) .mermaid .nodoAlerta div,
+html:not(.dark) .mermaid .nodoAlerta text,
+html:not(.dark) .mermaid .nodoAlerta tspan,
+html:not(.dark) .mermaid .nodoAlerta foreignObject *,
+html[data-theme="light"] .mermaid .nodoAlerta .nodeLabel,
+html[data-theme="light"] .mermaid .nodoAlerta span,
+html[data-theme="light"] .mermaid .nodoAlerta div,
+html[data-theme="light"] .mermaid .nodoAlerta text,
+html[data-theme="light"] .mermaid .nodoAlerta tspan,
+html[data-theme="light"] .mermaid .nodoAlerta foreignObject *,
+html.light .mermaid .nodoAlerta .nodeLabel,
+html.light .mermaid .nodoAlerta span,
+html.light .mermaid .nodoAlerta div,
+html.light .mermaid .nodoAlerta text,
+html.light .mermaid .nodoAlerta tspan,
+html.light .mermaid .nodoAlerta foreignObject * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Nodos Terminales de Rechazo / Salida (.nodoNo): Púrpura Sólido con Texto Blanco Puro */
+html:not(.dark) .mermaid .nodoNo rect,
+html:not(.dark) .mermaid .nodoNo circle,
+html:not(.dark) .mermaid .nodoNo polygon,
+html[data-theme="light"] .mermaid .nodoNo rect,
+html[data-theme="light"] .mermaid .nodoNo circle,
+html[data-theme="light"] .mermaid .nodoNo polygon,
+html.light .mermaid .nodoNo rect,
+html.light .mermaid .nodoNo circle,
+html.light .mermaid .nodoNo polygon {
+  fill: #7e22ce !important; /* Purple 700 */
+  stroke: #581c87 !important; /* Purple 900 */
+  stroke-width: 2.5px !important;
+}
+
+html:not(.dark) .mermaid .nodoNo .nodeLabel,
+html:not(.dark) .mermaid .nodoNo span,
+html:not(.dark) .mermaid .nodoNo div,
+html:not(.dark) .mermaid .nodoNo text,
+html:not(.dark) .mermaid .nodoNo tspan,
+html:not(.dark) .mermaid .nodoNo foreignObject *,
+html[data-theme="light"] .mermaid .nodoNo .nodeLabel,
+html[data-theme="light"] .mermaid .nodoNo span,
+html[data-theme="light"] .mermaid .nodoNo div,
+html[data-theme="light"] .mermaid .nodoNo text,
+html[data-theme="light"] .mermaid .nodoNo tspan,
+html[data-theme="light"] .mermaid .nodoNo foreignObject *,
+html.light .mermaid .nodoNo .nodeLabel,
+html.light .mermaid .nodoNo span,
+html.light .mermaid .nodoNo div,
+html.light .mermaid .nodoNo text,
+html.light .mermaid .nodoNo tspan,
+html.light .mermaid .nodoNo foreignObject * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Flechas y Conectores de Diagramas en Modo Claro */
+html:not(.dark) .mermaid .edgePath path,
+html:not(.dark) .mermaid .flowchart-link,
+html:not(.dark) .mermaid path.flowchart-link,
+html:not(.dark) .mermaid .edgePaths path,
+html[data-theme="light"] .mermaid .edgePath path,
+html[data-theme="light"] .mermaid .flowchart-link,
+html[data-theme="light"] .mermaid path.flowchart-link,
+html[data-theme="light"] .mermaid .edgePaths path,
+html.light .mermaid .edgePath path,
+html.light .mermaid .flowchart-link,
+html.light .mermaid path.flowchart-link,
+html.light .mermaid .edgePaths path {
+  stroke: #1e293b !important; /* Slate 800 nítido y grueso */
+  stroke-width: 2.5px !important;
+}
+
+html:not(.dark) .mermaid marker path,
+html:not(.dark) .mermaid .arrowMarkerPath,
+html:not(.dark) .mermaid [id*="arrow"] path,
+html:not(.dark) .mermaid defs marker path,
+html[data-theme="light"] .mermaid marker path,
+html[data-theme="light"] .mermaid .arrowMarkerPath,
+html[data-theme="light"] .mermaid [id*="arrow"] path,
+html[data-theme="light"] .mermaid defs marker path,
+html.light .mermaid marker path,
+html.light .mermaid .arrowMarkerPath,
+html.light .mermaid [id*="arrow"] path,
+html.light .mermaid defs marker path {
+  fill: #1e293b !important;
+  stroke: #1e293b !important;
+}
+
+/* Etiquetas sobre las Flechas ("SÍ", "NO", "Motivo", etc.) */
+html:not(.dark) .mermaid .edgeLabel,
+html:not(.dark) .mermaid .edgeLabel rect,
+html[data-theme="light"] .mermaid .edgeLabel,
+html[data-theme="light"] .mermaid .edgeLabel rect,
+html.light .mermaid .edgeLabel,
+html.light .mermaid .edgeLabel rect {
+  background-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+html:not(.dark) .mermaid .edgeLabel span,
+html:not(.dark) .mermaid .edgeLabel p,
+html:not(.dark) .mermaid .edgeLabel div,
+html:not(.dark) .mermaid .edgeLabel text,
+html:not(.dark) .mermaid .edgeLabel foreignObject *,
+html[data-theme="light"] .mermaid .edgeLabel span,
+html[data-theme="light"] .mermaid .edgeLabel p,
+html[data-theme="light"] .mermaid .edgeLabel div,
+html[data-theme="light"] .mermaid .edgeLabel text,
+html[data-theme="light"] .mermaid .edgeLabel foreignObject *,
+html.light .mermaid .edgeLabel span,
+html.light .mermaid .edgeLabel p,
+html.light .mermaid .edgeLabel div,
+html.light .mermaid .edgeLabel text,
+html.light .mermaid .edgeLabel foreignObject * {
+  color: #0f172a !important;
+  fill: #0f172a !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  background-color: #ffffff !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+
+/* ==========================================================================
+   SIMULADOR Y MOCKUP EN MODO CLARO
+   ========================================================================== */
+
+html:not(.dark) .sim-btn,
+html[data-theme="light"] .sim-btn,
+html.light .sim-btn {
+  background-color: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .sim-btn:hover,
+html[data-theme="light"] .sim-btn:hover,
+html.light .sim-btn:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #16a34a !important;
+}
+
+html:not(.dark) .sim-btn.active,
+html[data-theme="light"] .sim-btn.active,
+html.light .sim-btn.active {
+  background-color: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.25) !important;
+}
+
+html:not(.dark) .logic-inputs,
+html[data-theme="light"] .logic-inputs,
+html.light .logic-inputs {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html:not(.dark) .logic-inputs-header,
+html[data-theme="light"] .logic-inputs-header,
+html.light .logic-inputs-header {
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+html:not(.dark) .logic-variable,
+html[data-theme="light"] .logic-variable,
+html.light .logic-variable {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+html:not(.dark) .logic-variable span,
+html[data-theme="light"] .logic-variable span,
+html.light .logic-variable span {
+  color: #334155 !important;
+}
+
+html:not(.dark) .logic-variable strong,
+html[data-theme="light"] .logic-variable strong,
+html.light .logic-variable strong {
+  color: #15803d !important;
+}
+
+html:not(.dark) .output-trace,
+html[data-theme="light"] .output-trace,
+html.light .output-trace {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0369a1 !important;
+}
+
+/* Mockup Frame & Screens */
+html:not(.dark) .mockup-frame,
+html[data-theme="light"] .mockup-frame,
+html.light .mockup-frame {
+  background-color: #ffffff !important;
+  border: 2px solid #cbd5e1 !important;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12) !important;
+}
+
+html:not(.dark) .mockup-tab-btn,
+html[data-theme="light"] .mockup-tab-btn,
+html.light .mockup-tab-btn {
+  background-color: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+html:not(.dark) .mockup-tab-btn:hover,
+html[data-theme="light"] .mockup-tab-btn:hover,
+html.light .mockup-tab-btn:hover {
+  border-color: #16a34a !important;
+  color: #15803d !important;
+}
+
+html:not(.dark) .mockup-tab-btn.active,
+html[data-theme="light"] .mockup-tab-btn.active,
+html.light .mockup-tab-btn.active {
+  background-color: #16a34a !important;
+  color: #ffffff !important;
+  border-color: #16a34a !important;
+}
+
+/* Acordeones en Modo Claro */
+html:not(.dark) .accordion-item,
+html[data-theme="light"] .accordion-item,
+html.light .accordion-item {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html:not(.dark) .accordion-content,
+html[data-theme="light"] .accordion-content,
+html.light .accordion-content {
+  background-color: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Footer en Modo Claro */
+html:not(.dark) footer,
+html[data-theme="light"] footer,
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-top: 1px solid #cbd5e1 !important;
+}
