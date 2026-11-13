@@ -17,7 +17,7 @@
 
 ### 🔗 Enlaces y Documentación del Proyecto (Rúbrica 02)
 * **Repositorio en GitHub:** [https://github.com/marcelo-yrala/tp3-frontend-grupo30](https://github.com/marcelo-yrala/tp3-frontend-grupo30)
-* **Landing Page Publicada (Producción):** [https://tp3-frontend-grupo30.vercel.app/]([https://marcelo-yrala.github.io/tp3-frontend-grupo30/convocado-tp3/](https://tp3-frontend-grupo30.vercel.app/)) 
+* **Landing Page Publicada (Producción):** [https://tp3-frontend-grupo30.vercel.app/]([https://marcelo-yrala.github.io/tp3-frontend-grupo30/convocado-tp3/](https://tp3-frontend-grupo30.vercel.app/))
 * **Memoria Técnica y Desarme Lógico Detallado:** [ANALISIS_Y_PLANIFICACION_GRUPO30.md](./ANALISIS_Y_PLANIFICACION_GRUPO30.md)
 
 > **Comprobación de accesibilidad sin sesión:** Ambos enlaces son públicos y pueden abrirse en una ventana en modo incógnito/privado sin necesidad de autenticación previa.
@@ -30,7 +30,7 @@
 | :--- | :--- |
 | **Marcelo Yrala** | Coordinación general, dirección de prompts al agente de IA para estructura semántica y diseño CSS, verificación de lógica de R5. |
 | **Integrante 2** *(Nombre a completar)* | Desarme formal de sentencias proposicionales, diseño del circuito ético de R6 y casos límites de intervención humana. |
-| **Integrante 3** *(Nombre a completar)* | Pruebas de funcionamiento en desktop, auditoría de accesibilidad por teclado (`<details>`) y verificación contra la rúbrica oficial. |
+| **Fernando Ezequiel Baca** | Pruebas de funcionamiento en desktop, auditoría de accesibilidad por teclado (`<details>`) y verificación contra la rúbrica oficial. |
 | **Carmen Leonela Lamas** | Preparación de assets (descarga y adaptación del logo oficial `S08.webp`), documentación del README y despliegue del sitio. |
 | **Integrante 5** *(Nombre a completar)* | Revisión y pruebas cruzadas del simulador de casos y mockup interactivo, control de enlaces públicos y verificación de compatibilidad. |
 
