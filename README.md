@@ -32,7 +32,7 @@
 | **Israel Adan Mateo** | Desarme formal de sentencias proposicionales, diseño del circuito ético de R6 y casos límites de intervención humana. |
 | **Fernando Ezequiel Baca** | Pruebas de funcionamiento en desktop, auditoría de accesibilidad por teclado (`<details>`) y verificación contra la rúbrica oficial. |
 | **Carmen Leonela Lamas** | Preparación de assets (descarga y adaptación del logo oficial `S08.webp`), documentación del README y despliegue del sitio. |
-| **RAúl Alberto Mata Botana** | Revisión y pruebas cruzadas del simulador de casos y mockup interactivo, control de enlaces públicos y verificación de compatibilidad. |
+| **Raúl Alberto Mata Botana** | Revisión y pruebas cruzadas del simulador de casos y mockup interactivo, control de enlaces públicos y verificación de compatibilidad. |
 
 #### 🔄 Evidencia de Revisión entre Integrantes y Mejora Colaborativa (Nivel Propone · Rúbrica 01)
 * **Revisión interna efectuada:** Tras una primera versión del sitio construida con tarjetas estáticas, el equipo contrastó el resultado contra la Rúbrica 03 y 04 de la página 8 del PDF.
